@@ -10,6 +10,12 @@ $(document).ready( function(){
 		$(this).addClass('active');
 		$(this).clone().removeAttr('width').appendTo('#panel');
 	})
+
+	$('.active').siblings().click( function(){
+		$(this).removeClass('active');
+		$(this).siblings().click(function(){$(this).addClass('active')});
+	})
+		// {(this).siblings.removeClass('active');}
 	// if ($('#sidebar img:nth-child(n):not(.active)').click()){
 	// 	$("#panel img:nth-child(n)").fadeOut();
 	// 	$(this).addClass('active');
