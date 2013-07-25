@@ -11,10 +11,20 @@ $(document).ready( function(){
 		$(this).clone().removeAttr('width').appendTo('#panel');
 	})
 
-	$('.active').siblings().click( function(){
-		$(this).removeClass('active');
-		$(this).siblings().click(function(){$(this).addClass('active')});
+
+	$('img').not('.active').click(function(){
+		$('#panel').find('.active').remove();
+		$('.active').removeClass('active');
+		$(this).addClass('active').clone().removeAttr('width').appendTo('#panel');
+		$('.caption').text($('.active').attr('data-caption'));
 	})
+
+	
+
+	// .click( function(){
+	// 	$(this).removeClass('active');
+	// 	$(this).siblings().click(function(){$(this).addClass('active')});
+	// })
 		// {(this).siblings.removeClass('active');}
 	// if ($('#sidebar img:nth-child(n):not(.active)').click()){
 	// 	$("#panel img:nth-child(n)").fadeOut();
